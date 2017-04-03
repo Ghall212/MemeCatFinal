@@ -1,3 +1,97 @@
 // Place all the styles related to the Welcome controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+h1
+{
+   display: circle;
+   color: white;
+   background-color: Gray;
+   padding: 5px 10px;
+   font-size: 5em;
+   font-weight: bold;
+   font-family: Comic sans MS;
+   text-align: center;
+   margin-top: 0;
+}
+
+
+html
+{
+    height: 100%;
+}
+
+body
+{
+    min-height: 100%;
+}
+
+body
+{
+    background-image: url('Homepage.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+}
+
+.button
+{
+    display: inline-block;
+    padding: 5px 10px;
+    border: 10px solid Purple;
+    background-color: Gray;
+    color: White;
+    text-decoration: none;
+    font-size: 2em;
+    font-family: Comic Sans MS;
+    width: 250px;
+    text-align: center;
+}
+
+#browse
+{
+    position: absolute;
+    top: 300px;
+    right: 200px;
+}
+
+#browse:hover
+{
+    transform: scale(1.1);
+}
+
+#upload
+{
+    position: absolute;
+    top: 500px;
+    right: 200px;
+}
+
+#upload:hover
+{
+    transform: scale(1.1);
+}
+
+#signUp
+{
+    position: absolute;
+    top: 30px;
+    right: 30px;
+}
+
+#signUp:hover
+{
+    transform: scale(1.1);
+}
+
+#login
+{
+    position: absolute;
+    top: 30px;
+    left: 30px;
+}
+
+#login:hover
+{
+    transform: scale(1.1);
+}
