@@ -3,10 +3,10 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 input[type=button], input[type=submit] {
-    background-color: Teal;
-    float: right;
+    background-color: Gray;
+    float: left;
     border: none;
-    color: Red;
+    color: White;
     padding: 16px 20px;
     text-decoration: none;
     cursor: pointer;
@@ -31,4 +31,24 @@ input[type=button], input[type=submit] {
     position: absolute;
     top: 300px;
     left: 200px;
+}
+
+.existingUser
+{
+    position: absolute;
+    top: 300px;
+    left: 200px;
+}
+
+#error_explanation
+{
+    color: White;
+}
+
+.signIn
+{
+    color: White;
+    font-size: 3.2em;
+    top: 200px;
+    left: 300px;
 }
