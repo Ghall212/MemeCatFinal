@@ -4,17 +4,16 @@
 
 h1
 {
-   display: circle;
-   color: white;
-   background-color: Gray;
-   padding: 5px 10px;
-   font-size: 5em;
-   font-weight: bold;
-   font-family: Comic sans MS;
-   text-align: center;
-   margin-top: 0;
+    text-align: center;
+    margin-top: 75px;
+    font-weight: bold;
+    font-size: 5em;
+    background-image: -webkit-gradient( linear, left top, right top, color-stop(0, #f22), color-stop(0.15, #f2f), color-stop(0.3, #22f), color-stop(0.45, #2ff), color-stop(0.6, #2f2),color-stop(0.75, #2f2), color-stop(0.9, #ff2), color-stop(1, #f22) );
+    background-image: gradient( linear, left top, right top, color-stop(0, #f22), color-stop(0.15, #f2f), color-stop(0.3, #22f), color-stop(0.45, #2ff), color-stop(0.6, #2f2),color-stop(0.75, #2f2), color-stop(0.9, #ff2), color-stop(1, #f22) );
+    color:transparent;
+    -webkit-background-clip: text;
+    background-clip: text;
 }
-
 
 html
 {
@@ -59,6 +58,8 @@ body
 #browse:hover
 {
     transform: scale(1.1);
+    text-decoration: none;
+    color: white;
 }
 
 #upload
@@ -70,30 +71,7 @@ body
 
 #upload:hover
 {
-    transform: scale(1.1);
-}
-
-#signUp
-{
-    position: absolute;
-    top: 30px;
-    right: 30px;
-}
-
-#signUp:hover
-{
-    transform: scale(1.1);
-}
-
-#login
-{
-    position: absolute;
-    top: 30px;
-    left: 30px;
-}
-
-#login:hover
-{
-    transform: scale(1.1);
+    transform: scale(1.1);;
+    color: white;
 }
 

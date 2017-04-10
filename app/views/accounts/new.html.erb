@@ -1,7 +1,6 @@
-<h1>New And Existing Users</h1>
-<h2 class="signIn">Sign Up</h2>
+<h1 id="signIn">Sign Up</h1>
 
-<div class="newUser">
+<div class="loginSignup">
   
 <%= form_for @account do |f| %>
   <% if @account.errors.any? %>
@@ -19,18 +18,29 @@
   <% end %>
   
   <p>
-    <%= f.label :username %><br>
-    <%= f.text_field :username %>
+    <%= f.label :create_a_username %><br>
+    <%= f.text_field :username, placeholder: "EX: MemeCatIsCool", class: 'form-control' %>
   </p>
  
   <p>
-    <%= f.label :password %><br>
-    <%= f.text_field :password %>
+    <%= f.label :create_a_password %><br>
+    <%= f.password_field :password, placeholder: "Password", class: 'form-control' %>
   </p>
+  
+  <p>
+    <%= f.label :password_confirmation %><br>
+    <%= f.password_field :password_confirmation, placeholder: "Confirm Password", class: 'form-control' %>
+  </p>
+    
  
   <p>
     <%= f.submit %>
   </p>
   
+  <% end %>
+  
+  <p>
+    <%= link_to "Have an existing account? Login NOW!", login_path, id: "browse", class: "button" %>
+  </p>
+  
 </div>
-<% end %>

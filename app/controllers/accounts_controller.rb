@@ -7,6 +7,8 @@ class AccountsController < ApplicationController
         @account = Account.new(account_params)
         
         if @account.save
+            log_in @account
+            flash[:success] = "Welcome to the Meme Team!"
             redirect_to @account
         else
             render 'new'
@@ -20,5 +22,5 @@ end
 
 private 
     def account_params
-        params.require(:account).permit(:username, :password)
+        params.require(:account).permit(:username, :password, :password_confirmation)
     end
