@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170406222208) do
+ActiveRecord::Schema.define(version: 20170412151436) do
 
   create_table "accounts", force: :cascade do |t|
     t.string   "username"
@@ -18,6 +18,16 @@ ActiveRecord::Schema.define(version: 20170406222208) do
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
     t.string   "password_digest"
+  end
+
+  create_table "uploads", force: :cascade do |t|
+    t.string   "title"
+    t.text     "description"
+    t.string   "image"
+    t.integer  "account_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.index ["account_id"], name: "index_uploads_on_account_id"
   end
 
 end
