@@ -1,5 +1,25 @@
 <body class="homepage">
-    
-<%= link_to 'Browse Memes', root_path, id: 'browse', class: 'button'%>
-<%= link_to 'Upload Meme', root_path, id: 'upload', class: 'button'%>
+
+<div class='imageHolder'>
+    <table class='picTable'>
+        <tbody>
+          <tr>
+            <td class='cell'><%= image_tag Upload.last.image.thumb.url %></td>
+            <td class='cell'><%= image_tag Upload.last.prev.image.thumb.url %></td>
+          </tr>
+          <tr>
+            <td class='cell'><%= image_tag Upload.last.prev.prev.image.thumb.url %></td>
+            <td class='cell'><%= image_tag Upload.last.prev.prev.prev.image.thumb.url %></td>
+          </tr>
+          <tr>
+            <td class='cell'><%= image_tag Upload.last.prev.prev.prev.prev.image.thumb.url %></td>
+            <td class='cell'><%= image_tag Upload.last.prev.prev.prev.prev.prev.image.thumb.url %></td>
+          </tr>
+      </tbody>
+    </table>
+</div> 
+
+<%= link_to 'Browse Memes', root_path, id: 'browse', class: 'button' %>
+<%= link_to 'Upload Meme', root_path, id: 'upload', class: 'button' %>
+
 </body>

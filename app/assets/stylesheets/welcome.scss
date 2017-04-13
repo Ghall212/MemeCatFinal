@@ -71,7 +71,33 @@ body
 
 #upload:hover
 {
-    transform: scale(1.1);;
+    transform: scale(1.1);
     color: white;
+}
+
+.imageHolder
+{
+    width: 400px;
+    height: 150px;
+    position: absolute;
+    top: 150px;
+    left: 100px;
+}
+
+.imageHolder img
+{
+    width: 100%;
+    height: auto;
+}
+
+.picTable
+{
+    background-color: rgba(0, 0, 0, 0.75);
+}
+
+.cell
+{
+    padding: 5px 10px;
+    border: 10px double purple;
 }
 

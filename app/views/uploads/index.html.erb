@@ -18,7 +18,7 @@
       <tr>
         <td><%= upload.title %></td>
         <td><%= upload.description %></td>
-        <td><%= upload.image %></td>
+        <td><%= image_tag upload.image.thumb.url %></td>
         <td><%= upload.account %></td>
         <td><%= link_to 'Show', upload %></td>
         <td><%= link_to 'Edit', edit_upload_path(upload) %></td>
