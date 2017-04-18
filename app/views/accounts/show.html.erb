@@ -1,10 +1,34 @@
-<p>
-    <strong>Welcome</strong>
-    <%= current_account.username %>
-    <strong>!</strong>
-</p>
+<h1 id='recent'>
+  Your Recent Uploads
+</h1>
 
-<p>
-    <strong>Password</strong>
-    <%= current_account.password %>
-</p>
+<div class='imageHolder'>
+    <table class='picTable'>
+        <tbody>
+          <tr>
+            <% if current_account.uploads.count > 0 %>
+              <td class='cell'><%= link_to image_tag(current_account.uploads.last.image.thumb.url), current_account.uploads.last %></td>
+            <% end %>
+            <% if current_account.uploads.count > 1 %>
+              <td class='cell'><%= link_to image_tag(current_account.uploads.last.prev.image.thumb.url), current_account.uploads.last.prev %></td>
+            <% end %>
+          </tr>
+          <tr>
+            <% if current_account.uploads.count > 2 %>
+              <td class='cell'><%= link_to image_tag(current_account.uploads.last.prev.prev.image.thumb.url), current_account.uploads.last.prev.prev %></td>
+            <% end %>
+            <% if current_account.uploads.count > 3 %>
+              <td class='cell'><%= link_to image_tag(current_account.uploads.last.prev.prev.prev.image.thumb.url), current_account.uploads.last.prev.prev.prev %></td>
+            <% end %>
+          </tr>
+          <tr>
+            <% if current_account.uploads.count > 4 %>
+                <td class='cell'><%= link_to image_tag(current_account.uploads.last.prev.prev.prev.prev.image.thumb.url), current_account.uploads.last.prev.prev.prev.prev %></td>
+            <% end %>
+            <% if current_account.uploads.count > 5 %>
+                <td class='cell'><%= link_to image_tag(current_account.uploads.last.prev.prev.prev.prev.prev.image.thumb.url), current_account.uploads.last.prev.prev.prev.prev.prev %></td>
+            <% end %>
+          </tr>
+      </tbody>
+    </table>
+</div> 

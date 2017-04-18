@@ -1,5 +1,6 @@
 class Upload < ApplicationRecord
   belongs_to :account
+  has_and_belongs_to_many :favorites
   mount_uploader :image, ImageUploader
   validates_processing_of :image
   validate :image_size_validation

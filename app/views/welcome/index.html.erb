@@ -1,25 +1,48 @@
 <body class="homepage">
+  
+  <h1 id='recent'>
+  Recently Added
+</h1>
 
 <div class='imageHolder'>
     <table class='picTable'>
         <tbody>
           <tr>
-            <td class='cell'><%= image_tag Upload.last.image.thumb.url %></td>
-            <td class='cell'><%= image_tag Upload.last.prev.image.thumb.url %></td>
+            <% if Upload.count > 0 %>
+              <td class='cell'><%= link_to image_tag(Upload.last.image.thumb.url), Upload.last %></td>
+            <% end %>
+            <% if Upload.count > 1 %>
+              <td class='cell'><%= link_to image_tag(Upload.last.prev.image.thumb.url), Upload.last.prev %></td>
+            <% end %>
           </tr>
           <tr>
-            <td class='cell'><%= image_tag Upload.last.prev.prev.image.thumb.url %></td>
-            <td class='cell'><%= image_tag Upload.last.prev.prev.prev.image.thumb.url %></td>
+            <% if Upload.count > 2 %>
+              <td class='cell'><%= link_to image_tag(Upload.last.prev.prev.image.thumb.url), Upload.last.prev.prev %></td>
+            <% end %>
+            <% if Upload.count > 3 %>
+              <td class='cell'><%= link_to image_tag(Upload.last.prev.prev.prev.image.thumb.url), Upload.last.prev.prev.prev %></td>
+            <% end %>
           </tr>
           <tr>
-            <td class='cell'><%= image_tag Upload.last.prev.prev.prev.prev.image.thumb.url %></td>
-            <td class='cell'><%= image_tag Upload.last.prev.prev.prev.prev.prev.image.thumb.url %></td>
+            <% if Upload.count > 4 %>
+                <td class='cell'><%= link_to image_tag(Upload.last.prev.prev.prev.prev.image.thumb.url), Upload.last.prev.prev.prev.prev %></td>
+            <% end %>
+            <% if Upload.count > 5 %>
+                <td class='cell'><%= link_to image_tag(Upload.last.prev.prev.prev.prev.prev.image.thumb.url), Upload.last.prev.prev.prev.prev.prev %></td>
+            <% end %>
           </tr>
       </tbody>
     </table>
 </div> 
 
-<%= link_to 'Browse Memes', root_path, id: 'browse', class: 'button' %>
-<%= link_to 'Upload Meme', root_path, id: 'upload', class: 'button' %>
+<%= link_to 'Browse Memes', uploads_path, id: 'browse', class: 'button' %>
+
+<% if logged_in? %>
+  <%= link_to 'Upload Meme', new_upload_path, id: 'upload', class: 'button' %>
+<% else %>
+  <p>
+   <%= link_to 'Login to Upload', login_path, id: 'upload', class: 'button' %>
+  </p>
+  <% end %>
 
 </body>

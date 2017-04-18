@@ -1,0 +1,81 @@
+<div class="loginSignup">
+  
+<%= form_for @account do |f| %>
+  <% if @account.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(@account.errors.count, "error") %> prohibited
+        this account from being saved:
+      </h2>
+      <ul>
+        <% @account.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  
+  <p>
+    <%= f.label :edit_username %><br>
+    <%= f.text_field :username, placeholder: "EX: MemeCatIsCool", class: 'form-control' %>
+  </p>
+ 
+  <p>
+    <%= f.submit %><br>
+  </p>
+<% end %>
+
+<%= form_for @account do |e| %>
+  <% if @account.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(@account.errors.count, "error") %> prohibited
+        this account from being saved:
+      </h2>
+      <ul>
+        <% @account.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  
+  <p>
+    <%= e.label :edit_password %><br>
+    <%= e.password_field :password, placeholder: "Password", class: 'form-control' %>
+  </p>
+  
+  <p>
+    <%= e.label :password_confirmation %><br>
+    <%= e.password_field :password_confirmation, placeholder: "Confirm Password", class: 'form-control' %>
+  </p>
+  
+  <p>
+    <%= e.submit %><br>
+  </p>
+<% end %>
+  
+<%= form_for @account do |d| %>
+  <% if @account.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(@account.errors.count, "error") %> prohibited
+        this account from being saved:
+      </h2>
+      <ul>
+        <% @account.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  
+  <p>
+      <%= d.label :edit_profile_pic %> <br>
+      <%= d.file_field :profile_pic %>
+  </p>
+  
+  <p>
+    <%= d.submit %><br>
+  </p>
+<% end %>
