@@ -1,8 +1,13 @@
+<div class='imageHolder'>
+  
 <h1 id='recent'>
   Your Recent Uploads
 </h1>
 
-<div class='imageHolder'>
+
+  <% if current_account.uploads.count == 0 %>
+    <!-- Insert box saying that the user has no uploads and redirects them to the uploads page -->
+  <% else %>
     <table class='picTable'>
         <tbody>
           <tr>
@@ -14,7 +19,7 @@
             <% end %>
           </tr>
           <tr>
-            <% if current_account.uploads.count > 2 %>
+            <% if current_account.uploads.count > 3 %>
               <td class='cell'><%= link_to image_tag(current_account.uploads.last.prev.prev.image.thumb.url), current_account.uploads.last.prev.prev %></td>
             <% end %>
             <% if current_account.uploads.count > 3 %>
@@ -22,7 +27,7 @@
             <% end %>
           </tr>
           <tr>
-            <% if current_account.uploads.count > 4 %>
+            <% if current_account.uploads.count > 5 %>
                 <td class='cell'><%= link_to image_tag(current_account.uploads.last.prev.prev.prev.prev.image.thumb.url), current_account.uploads.last.prev.prev.prev.prev %></td>
             <% end %>
             <% if current_account.uploads.count > 5 %>
@@ -31,4 +36,45 @@
           </tr>
       </tbody>
     </table>
+  <% end %>
+</div>
+  
+<div class='favHolder'>
+  
+  <h1 id='favUploads'>
+    Your Favorites
+  </h1>
+
+  <% if Favorite.where("account_id = ?", current_account.id).count == 0 %>
+    <!-- Insert box saying that the user has no favorites and redirects them to the browse page -->
+  <% else %>
+    <table class='picTable'>
+        <tbody>
+          <tr>
+            <%  if Favorite.where("account_id = ?", current_account.id).count > 0 %>
+              <td class='cell'><%= link_to image_tag(Favorite.where("account_id = ?", current_account.id).last.upload.image.thumb.url), Favorite.where("account_id = ?", current_account.id).last %></td>
+            <% end %>
+            <% if Favorite.where("account_id = ?", current_account).count > 1 %>
+              <td class='cell'><%= link_to image_tag(Favorite.where("account_id = ?", current_account.id).last.prev.upload.image.thumb.url), Favorite.where("account_id = ?", current_account.id).last.prev %></td>
+            <% end %>
+          </tr>
+          <tr>
+            <% if Favorite.where("account_id = ?", current_account.id).count > 3 %>
+              <td class='cell'><%= link_to image_tag(Favorite.where("account_id = ?", current_account.id).last.prev.prev.upload.image.thumb.url), Favorite.where("account_id = ?", current_account.id).last.prev.prev %></td>
+            <% end %>
+            <% if Favorite.where("account_id = ?", current_account.id).count > 3 %>
+              <td class='cell'><%= link_to image_tag(Favorite.where("account_id = ?", current_account.id).last.prev.prev.prev.upload.image.thumb.url), Favorite.where("account_id = ?", current_account.id).last.prev.prev.prev %></td>
+            <% end %>
+          </tr>
+          <tr>
+            <% if Favorite.where("account_id = ?", current_account.id).count > 5 %>
+                <td class='cell'><%= link_to image_tag(Favorite.where("account_id = ?", current_account.id).last.prev.prev.prev.prev.upload.image.thumb.url), Favorite.where("account_id = ?", current_account.id).last.prev.prev.prev.prev %></td>
+            <% end %>
+            <% if Favorite.where("account_id = ?", current_account.id).count > 5 %>
+                <td class='cell'><%= link_to image_tag(Favorite.where("account_id = ?", current_account.id).last.prev.prev.prev.prev.prev.upload.image.thumb.url), Favorite.where("account_id = ?", current_account.id).last.prev.prev.prev.prev.prev %></td>
+            <% end %>
+          </tr>
+      </tbody>
+    </table>
+  <% end %>
 </div> 

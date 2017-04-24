@@ -32,6 +32,13 @@ class AccountsController < ApplicationController
             render 'edit'
         end
     end
+    
+    def destroy
+        @account = Account.find(params[:id])
+        @account.destroy
+        
+        redirect_to root
+    end
 end
 
 private 

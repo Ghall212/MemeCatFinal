@@ -1,6 +1,6 @@
 class Account < ApplicationRecord
-    has_many :uploads
-    has_and_belongs_to_many :favorites
+    has_many :uploads, dependent: :destroy
+    has_and_belongs_to_many :favorites, dependent: :destroy
     validates :username, presence: true, uniqueness: { case_sensitive: false }, length: {minimum: 5}
     validates :password, presence: true, length: {minimum: 8}
     has_secure_password

@@ -1,5 +1,7 @@
 <p id="notice"><%= notice %></p>
 
+<%= @favorite = Favorite.new %>
+
 <p>
   <strong>Title:</strong>
   <%= @upload.title %>
@@ -12,13 +14,28 @@
 
 <p>
   <strong>Image:</strong>
-  <%= image_tag @upload.image.thumb.url %>
+  <%= image_tag @upload.image.thumb.url, class: 'showImgHolder' %>
 </p>
 
 <p>
   <strong>Account:</strong>
   <%= @upload.account %>
 </p>
-
+<% if logged_in? %>
+  <% if not_favorited? %>
+    <%= link_to 'Favorite', {:controller => "favorites", 
+                           :action => "create",
+                           :favorite => 
+                           { :account_id => current_account.id, 
+                           :upload_id => @upload.id }},
+                           :method => "post", id: 'favoriteB', class: 'button' %>
+  <% else %>
+    <%= link_to 'Unfavorite', {:controller => "favorites", 
+                           :action => "destroy", 
+                           :account_id => current_account.id, 
+                           :upload_id => @upload.id }, 
+                           :method => "delete", id: 'favoriteB', class: 'button' %>
+  <% end %>
+<% end %>
 <%= link_to 'Edit', edit_upload_path(@upload) %> |
 <%= link_to 'Back', :back %>

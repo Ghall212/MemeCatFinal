@@ -55,3 +55,27 @@ input[type='password']
     font-size: 2em;
     background-color: White;
 }
+
+#favUploads
+{
+    font-size: 3em;
+}
+
+.favHolder
+{
+    width: 400px;
+    height: 150px;
+    position: absolute;
+    top: 20%;
+    left: 80%;
+    margin-right: -80%;
+    transform: translate(-50%, -50%);
+}
+
+.favHolder img
+{
+     width: 100%;
+    height: auto;
+}
+
+
