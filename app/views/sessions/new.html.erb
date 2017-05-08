@@ -1,9 +1,13 @@
 <% provide(:title, "Log in") %>
-<h1>Log in</h1>
+<h1 id="majorKey">Log in</h1>
 
 <div class="loginSignup">
 
     <%= form_for(:session, url: login_path) do |f| %>
+    
+    <% if flash[:danger] %>
+      <p class="flashMsg"> <%= flash[:danger] %> </p>
+    <% end %>
     
     <p>
       <%= f.label :username %>
@@ -16,13 +20,13 @@
     </p>
 
     <p>
-      <%= f.submit "Log in" %>
+      <%= f.submit "Log in", class: 'button hoverAnimation' %>
     </p>
       
     <% end %>
 
-    <p>
-       <%= link_to "New user? Sign up NOW!", new_account_path, id: "browse", class: "button" %>
-    </p>
-
 </div>
+
+<p>
+  <%= link_to "New user? Sign up NOW!", new_account_path, id: "browse", class: "button hoverAnimation" %>
+</p>

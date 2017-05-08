@@ -18,7 +18,7 @@ ActiveRecord::Schema.define(version: 20170418153820) do
     t.datetime "created_at",                              null: false
     t.datetime "updated_at",                              null: false
     t.string   "password_digest"
-    t.         "profile_pic",     default: "Default.jpg"
+    t.string   "profile_pic",     default: "Default.jpg"
   end
 
   create_table "favorites", force: :cascade do |t|

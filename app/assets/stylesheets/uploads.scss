@@ -12,7 +12,8 @@
 .showImgHolder
 {
     position: absolute;
-    top: 50%;
+    height: 425px;
+    top: 53%;
     left: 50%;
     margin-right: -50%;
     transform: translate(-50%, -50%);
@@ -21,12 +22,97 @@
     background-color: black;
 }
 
+.showImgHolder img
+{
+    height: 100%;
+    width: auto;
+}
+
 #favoriteB
 {
+   position: absolute;
+    bottom: 25%;
+    left: 80%;
+    margin-right: -80%;
+}
+
+.tit
+{
     position: absolute;
-    top: 95%;
+    font-size: 2em;
+    color: White;
+    top: 22%;
     left: 50%;
     margin-right: -50%;
     transform: translate(-50%, -50%);
+    text-align:center;
+}
+
+.desc
+{
+    position: absolute;
+    font-size: 2em;
+    color: white;
+    top: 85%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+.actions
+{
+    position: absolute;
+    bottom: 0%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%);
+}
+
+#previous
+{
+    position: absolute;
+    top: 25%;
+    right: 80%;
+    margin-left: -80%;
+    
+}
+
+#next
+{
+    position: absolute;
+    top: 25%;
+    left: 80%;
+    margin-right: -80%;
+}
+
+#usBack
+{
+    position: absolute;
+    bottom: 25%;
+    right: 80%;
+    margin-left: -80%;
+}
+
+.actions
+{
+    position: absolute;
+    bottom: -50%;
+    right: 0%;
+    margin-left: 0%;
+}
+
+.chooseFile
+{
+    font-size: 1em;
+    color: White;
+}
+
+#profileUpload
+{
+    position: absolute;
+    bottom: 1%;
+    left: 41.5%;
+    margin-right: -41.5%;
 }
 

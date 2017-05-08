@@ -1,10 +1,17 @@
 <body class="homepage">
-  
-  <h1 id='recent'>
-  Recently Added
+
+<h1 id='majorKey'>
+  Welcome
 </h1>
 
-<div class='imageHolder'>
+
+  <% if Upload.count == 0 %>
+    <h2 class="zeroUploads button">
+      Currently No Uploads
+    </h2>
+  <% else %>
+  
+  <div class='imageHolder'>
     <table class='picTable'>
         <tbody>
           <tr>
@@ -16,7 +23,7 @@
             <% end %>
           </tr>
           <tr>
-            <% if Upload.count > 2 %>
+            <% if Upload.count > 3 %>
               <td class='cell'><%= link_to image_tag(Upload.last.prev.prev.image.thumb.url), Upload.last.prev.prev %></td>
             <% end %>
             <% if Upload.count > 3 %>
@@ -24,7 +31,7 @@
             <% end %>
           </tr>
           <tr>
-            <% if Upload.count > 4 %>
+            <% if Upload.count > 5 %>
                 <td class='cell'><%= link_to image_tag(Upload.last.prev.prev.prev.prev.image.thumb.url), Upload.last.prev.prev.prev.prev %></td>
             <% end %>
             <% if Upload.count > 5 %>
@@ -33,15 +40,16 @@
           </tr>
       </tbody>
     </table>
+  <% end %>
 </div> 
 
-<%= link_to 'Browse Memes', uploads_path, id: 'browse', class: 'button' %>
+<%= link_to 'Browse Memes', Upload.last, id: 'browse', class: 'button hoverAnimation' %>
 
 <% if logged_in? %>
-  <%= link_to 'Upload Meme', new_upload_path, id: 'upload', class: 'button' %>
+  <%= link_to 'Upload Meme', new_upload_path, id: 'upload', class: 'button hoverAnimation' %>
 <% else %>
   <p>
-   <%= link_to 'Login to Upload', login_path, id: 'upload', class: 'button' %>
+   <%= link_to 'Login to Upload', login_path, id: 'upload', class: 'button hoverAnimation' %>
   </p>
   <% end %>
 

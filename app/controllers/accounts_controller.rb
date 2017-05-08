@@ -8,7 +8,6 @@ class AccountsController < ApplicationController
         
         if @account.save
             log_in @account
-            flash[:success] = "Welcome to the Meme Team!"
             redirect_to @account
         else
             render 'new'
@@ -26,7 +25,7 @@ class AccountsController < ApplicationController
     def update
         @account = Account.find(params[:id])
         
-        if @account.update(account_params)
+        if @account.update_attributes(account_params)
             redirect_to @account
         else
             render 'edit'
@@ -37,11 +36,11 @@ class AccountsController < ApplicationController
         @account = Account.find(params[:id])
         @account.destroy
         
-        redirect_to root
+        redirect_to root_path
     end
+    
+    private 
+        def account_params
+            params.require(:account).permit(:username, :password, :password_confirmation, :profile_pic)
+        end
 end
-
-private 
-    def account_params
-        params.require(:account).permit(:username, :password, :password_confirmation)
-    end

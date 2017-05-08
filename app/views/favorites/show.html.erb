@@ -1,0 +1,48 @@
+<p id="notice"><%= notice %></p>
+
+<h1 id='majorKey'>
+   <%= @favorite.upload.title %><br>
+</h1>
+
+<div class='tit'>
+<p>
+  <%= @favorite.upload.account.username %> <br>
+</p>
+</div>
+
+<p class='desc'>
+  <%= @favorite.upload.description %>
+</p>
+
+<p class='ima'>
+  <%= image_tag @favorite.upload.image.thumb.url, class: 'showImgHolder' %>
+</p>
+
+<% if logged_in? %>
+  <% if not_favorited? @favorite.upload.id %>
+    <%= link_to 'Favorite', {:controller => "favorites", 
+                           :action => "create",
+                           :favorite => 
+                           { :account_id => current_account.id, 
+                           :upload_id => @favorite.upload.id }},
+                           :method => "post", id: 'favoriteB', class: 'button' %>
+  <% else %>
+    <%= link_to 'Unfavorite', {:controller => "favorites", 
+                           :action => "destroy", 
+                           :account_id => current_account.id, 
+                           :upload_id => @favorite.upload.id, 
+                           :on_favorite => true },
+                           :method => "delete", id: 'favoriteB', class: 'button' %>
+  <% end %>
+<% end %>
+<%= link_to 'Back', root_path, id: 'usBack', class: 'button' %>
+<% if @favorite.next_favorite(current_account) != nil %>
+  <%= link_to 'Previous', favorite_path(:id => @favorite.next_favorite(current_account).id), id: 'previous', class: 'button' %> 
+<% else %>
+  <%= link_to 'Last', favorite_path(:id => current_account.favorites.first.id), id: 'previous', class: 'button' %>
+<% end %>
+<% if @favorite.prev_favorite(current_account) != nil %>
+  <%= link_to 'Next', favorite_path(:id => @favorite.prev_favorite(current_account).id), id: 'next', class: 'button' %>
+  <% else %>
+    <%= link_to 'First', favorite_path(:id => current_account.favorites.last.id), id: 'next', class: 'button' %>
+<% end %>

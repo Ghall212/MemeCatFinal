@@ -1,4 +1,4 @@
-<h1 id="signIn">Sign Up</h1>
+<h1 id="majorKey">Sign Up</h1>
 
 <div class="loginSignup">
   
@@ -6,8 +6,7 @@
   <% if @account.errors.any? %>
     <div id="error_explanation">
       <h2>
-        <%= pluralize(@account.errors.count, "error") %> prohibited
-        this account from being saved:
+        <%= pluralize(@account.errors.count, "error") %> prohibited this account from being saved:
       </h2>
       <ul>
         <% @account.errors.full_messages.each do |msg| %>
@@ -34,13 +33,11 @@
     
  
   <p>
-    <%= f.submit %>
+    <%= f.submit "Sign Up", class: 'button hoverAnimation' %>
   </p>
   
   <% end %>
   
-  <p>
-    <%= link_to "Have an existing account? Login NOW!", login_path, id: "browse", class: "button" %>
-  </p>
-  
 </div>
+
+<%= link_to "Have an existing account? Login NOW!", login_path, id: "browse", class: "button hoverAnimation" %>

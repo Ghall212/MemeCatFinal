@@ -1,81 +1,41 @@
-<div class="loginSignup">
+<h1 id='majorKey'>
+  Edit Account
+</h1>
   
-<%= form_for @account do |f| %>
-  <% if @account.errors.any? %>
-    <div id="error_explanation">
-      <h2>
-        <%= pluralize(@account.errors.count, "error") %> prohibited
-        this account from being saved:
-      </h2>
-      <ul>
-        <% @account.errors.full_messages.each do |msg| %>
-          <li><%= msg %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
+<%= form_for @account do |a| %>
+
+  <div class="loginSignup">
+    <p>
+      <%= a.label :edit_username %><br>
+      <%= a.text_field :username, placeholder: "Leave Blank To Keep Same Username", class: 'form-control' %>
+    </p>
   
-  <p>
-    <%= f.label :edit_username %><br>
-    <%= f.text_field :username, placeholder: "EX: MemeCatIsCool", class: 'form-control' %>
-  </p>
- 
-  <p>
-    <%= f.submit %><br>
+    <p>
+      <%= a.label :edit_password %><br>
+      <%= a.password_field :password, placeholder: "Leave Blank To Keep Same Password", class: 'form-control' %>
+    </p>
+  
+    <p>
+      <%= a.label :password_confirmation %><br>
+      <%= a.password_field :password_confirmation, placeholder: "Leave Blank To Keep Same Password", class: 'form-control' %>
+    </p>
+  </div>
+    
+  <div class="passwordEdit">
+    <p>
+        <%= a.label :edit_profile_pic %> <br>
+        <%= a.file_field :profile_pic, class: 'chooseFile' %>
+    </p>
+  </div>
+  
+  <p class='updateButton'>
+    <%= a.submit "Update", class: 'button hoverAnimation' %><br>
   </p>
 <% end %>
 
-<%= form_for @account do |e| %>
-  <% if @account.errors.any? %>
-    <div id="error_explanation">
-      <h2>
-        <%= pluralize(@account.errors.count, "error") %> prohibited
-        this account from being saved:
-      </h2>
-      <ul>
-        <% @account.errors.full_messages.each do |msg| %>
-          <li><%= msg %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
-  
-  <p>
-    <%= e.label :edit_password %><br>
-    <%= e.password_field :password, placeholder: "Password", class: 'form-control' %>
-  </p>
-  
-  <p>
-    <%= e.label :password_confirmation %><br>
-    <%= e.password_field :password_confirmation, placeholder: "Confirm Password", class: 'form-control' %>
-  </p>
-  
-  <p>
-    <%= e.submit %><br>
-  </p>
-<% end %>
-  
-<%= form_for @account do |d| %>
-  <% if @account.errors.any? %>
-    <div id="error_explanation">
-      <h2>
-        <%= pluralize(@account.errors.count, "error") %> prohibited
-        this account from being saved:
-      </h2>
-      <ul>
-        <% @account.errors.full_messages.each do |msg| %>
-          <li><%= msg %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
-  
-  <p>
-      <%= d.label :edit_profile_pic %> <br>
-      <%= d.file_field :profile_pic %>
-  </p>
-  
-  <p>
-    <%= d.submit %><br>
-  </p>
-<% end %>
+ <%= link_to 'Delete Account', {:controller => "accounts", 
+                           :action => "destroy", 
+                           :account_id => current_account.id }, 
+                           :method => "delete", 
+                           data: { confirm: 'This will delete your account, as well as all of your uploads. Are you sure?' },
+                           id: 'deleteAcc', class: 'button hoverAnimation' %>

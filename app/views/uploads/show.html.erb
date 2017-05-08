@@ -1,41 +1,55 @@
 <p id="notice"><%= notice %></p>
 
-<%= @favorite = Favorite.new %>
+<h1 id='majorKey'>
+   <%= @upload.title %><br>
+</h1>
 
+<div class='tit'>
 <p>
-  <strong>Title:</strong>
-  <%= @upload.title %>
+  <%= @upload.account.username %> <br>
 </p>
+</div>
 
-<p>
-  <strong>Description:</strong>
+<p class='desc'>
   <%= @upload.description %>
 </p>
 
-<p>
-  <strong>Image:</strong>
+<p class='ima'>
   <%= image_tag @upload.image.thumb.url, class: 'showImgHolder' %>
 </p>
 
-<p>
-  <strong>Account:</strong>
-  <%= @upload.account %>
-</p>
 <% if logged_in? %>
-  <% if not_favorited? %>
+  <% if not_favorited? @upload.id %>
     <%= link_to 'Favorite', {:controller => "favorites", 
                            :action => "create",
                            :favorite => 
                            { :account_id => current_account.id, 
                            :upload_id => @upload.id }},
-                           :method => "post", id: 'favoriteB', class: 'button' %>
+                           :method => "post", id: 'favoriteB', class: 'button hoverAnimation' %>
   <% else %>
     <%= link_to 'Unfavorite', {:controller => "favorites", 
                            :action => "destroy", 
                            :account_id => current_account.id, 
-                           :upload_id => @upload.id }, 
-                           :method => "delete", id: 'favoriteB', class: 'button' %>
+                           :upload_id => @upload.id,
+                           :favorite_on => false }, 
+                           :method => "delete", id: 'favoriteB', class: 'button hoverAnimation' %>
   <% end %>
 <% end %>
-<%= link_to 'Edit', edit_upload_path(@upload) %> |
-<%= link_to 'Back', :back %>
+
+<% if logged_in? && current_account.username == @upload.account.username %>
+    <%= link_to 'Delete', {:controller => "uploads", 
+                           :action => "destroy" },
+                           :method => "delete", id: 'profileUpload', class: 'button hoverAnimation' %>
+<% end %>
+                           
+<%= link_to 'Back', root_path, id: 'usBack', class: 'button hoverAnimation' %>
+<% if @upload.next != nil %>
+  <%= link_to 'Previous', @upload.next, id: 'previous', class: 'button hoverAnimation' %> 
+<% else %>
+  <%= link_to 'Last', Upload.first, id: 'previous', class: 'button hoverAnimation' %>
+<% end %>
+<% if @upload.prev != nil %>
+  <%= link_to 'Next', @upload.prev, id: 'next', class: 'button hoverAnimation' %>
+  <% else %>
+    <%= link_to 'First', Upload.last, id: 'next', class: 'button hoverAnimation' %>
+<% end %>

@@ -1,5 +1,7 @@
-<h1>New Upload</h1>
+<h1 id="majorKey">
+    New Upload
+</h1>
 
 <%= render 'form', upload: @upload %>
 
-<%= link_to 'Back', uploads_path %>
+<%= link_to "Click Here to Browse Recent Memes", Upload.last, id: 'noFavs', class: 'button hoverAnimation'%>

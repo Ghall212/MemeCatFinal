@@ -23,11 +23,17 @@
           <li><%= link_to "Log in", login_path %></li>
           <li><%= link_to "Sign Up", new_account_path %></li>
         <% end %>
-        <% if logged_in? %>
-            <li class="profilePic">
-              <%= image_tag(current_account.profile_pic) %>
+        <% if logged_in? %> 
+          <% if /Default.jpg/.match(current_account.profile_pic.to_s) %>
+            <li>
+              <%= link_to image_tag("/assets/images/Default.jpg"), current_account, class: 'profilePic' %>
+            </li>
+          <% else %>
+            <li>
+              <%= link_to image_tag(current_account.profile_pic), current_account, class: 'profilePic' %>
             </li>
           <% end %>
+        <% end %>
       </ul>
     </nav>
   </div>

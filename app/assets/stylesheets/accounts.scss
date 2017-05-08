@@ -5,15 +5,16 @@
 input[type='button'], input[type='submit'] {
     background-color: Gray;
     float: left;
-    border: none;
+    border: 10px solid Purple;
     color: White;
     padding: 16px 20px;
     text-decoration: none;
     cursor: pointer;
+    text-align: center;
 }
 
  input[type='text'] {
-     width: 450px;
+     width: 510px;
      height: 50px;
      font-size: 2em;
      background-color: White;
@@ -22,18 +23,45 @@ input[type='button'], input[type='submit'] {
  label
  {
      font-size: 2.8em;
-      background-image: -webkit-gradient( linear, left top, right top, color-stop(0, #f22), color-stop(0.15, #f2f), color-stop(0.3, #22f), color-stop(0.45, #2ff), color-stop(0.6, #2f2),color-stop(0.75, #2f2), color-stop(0.9, #ff2), color-stop(1, #f22) );
-    background-image: gradient( linear, left top, right top, color-stop(0, #f22), color-stop(0.15, #f2f), color-stop(0.3, #22f), color-stop(0.45, #2ff), color-stop(0.6, #2f2),color-stop(0.75, #2f2), color-stop(0.9, #ff2), color-stop(1, #f22) );
-    color:transparent;
-    -webkit-background-clip: text;
-    background-clip: text;
+     color: White;
  }
  
  .loginSignup
 {
+    position: absolute;
     float: left;
-    margin-left: -150px;
-    margin-top: 75px;
+    top: 22%;
+    left: 2%;
+    margin-right: -2%;
+}
+
+.passwordEdit
+{
+    position: absolute;
+    float: left;
+    top: 40%;
+    right: 0%;
+    margin-left: 0%;
+    transform: translate(-50%, -50%);
+}
+
+#deleteAcc
+{
+    position: absolute;
+    float: left;
+    top: 60%;
+    right: 2%;
+    margin-left: -2%;
+    transform: translate(-50%, -50%);
+}
+
+.updateButton
+{
+    position: absolute;
+    bottom: -5%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%);
 }
 
 .existingUser
@@ -46,11 +74,12 @@ input[type='button'], input[type='submit'] {
 #error_explanation
 {
     color: White;
+    top: -10%;
 }
 
 input[type='password']
 {
-    width: 450px;
+    width: 510px;
     height: 50px;
     font-size: 2em;
     background-color: White;
@@ -58,15 +87,15 @@ input[type='password']
 
 #favUploads
 {
-    font-size: 3em;
+    font-size: 2.2em;
 }
 
 .favHolder
 {
-    width: 400px;
+    width: 450px;
     height: 150px;
     position: absolute;
-    top: 20%;
+    top: 25%;
     left: 80%;
     margin-right: -80%;
     transform: translate(-50%, -50%);
@@ -74,8 +103,56 @@ input[type='password']
 
 .favHolder img
 {
-     width: 100%;
+    width: 100%;
     height: auto;
 }
+
+#noUploads
+{
+    position: absolute;
+    top: 35%;
+    left: 12%;
+    margin-right: -20%;
+}
+
+#noFavs
+{
+    position: absolute;
+    top: 35%;
+    right: 12%;
+    margin-left: -12%;
+}
+
+.profilePic
+{
+    padding-top: 5px !important;
+    padding-bottom: 5px !important;
+    padding-left: 0px !important;
+    padding-right: 0px !important;
+    height: 50px;
+    width: 50px;
+}
+
+#BPP
+{
+    position: absolute;
+    top: 53.75%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%);
+    width: 410px;
+    height: 410px;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+#BPP img
+{
+    height: 100%;
+    width: 100%;
+}
+
+
+
 
 
